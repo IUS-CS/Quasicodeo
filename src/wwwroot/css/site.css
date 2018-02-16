@@ -1,4 +1,4 @@
-body {
+﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -33,3 +33,28 @@ body {
         display: none;
     }
 }
+
+.btn-External {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width:382px;
+    height:92px;
+}
+
+.btn-Google { background-image:url(images/google-signin.png); }
+.btn-Google:active, .btn-Google:hover { background-image:url(images/google-signin-pressed.png); }
+.btn-Google:focus { background-image:url(images/google-signin.png); }
