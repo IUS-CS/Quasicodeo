@@ -12,6 +12,14 @@ namespace TooBroke.Controllers
     {
         public IActionResult Index()
         {
+            // Informational home page telling about the calculators
+            return View();
+        }
+
+        public IActionResult Splash()
+        {
+            // This page will be the list of calculators for the user
+            ViewData["Message"] = "User internal page of calculators.";
             return View();
         }
 
