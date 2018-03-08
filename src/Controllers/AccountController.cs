@@ -48,6 +48,7 @@ namespace TooBroke.Controllers
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
             ViewData["ReturnUrl"] = returnUrl;
+
             return View();
         }
 
@@ -65,7 +66,12 @@ namespace TooBroke.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return RedirectToLocal(returnUrl);
+
+                    if (!string.IsNullOrWhiteSpace(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    return RedirectToAction("LoggedIn", "Home");
                 }
                 if (result.RequiresTwoFactor)
                 {
