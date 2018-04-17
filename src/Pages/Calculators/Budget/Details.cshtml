@@ -1,0 +1,49 @@
+@page
+@model TooBroke.Pages.Budget.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BudgetEntry</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetEntry.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetEntry.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetEntry.Amount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetEntry.Amount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetEntry.CurrentBalance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetEntry.CurrentBalance)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetEntry.ApplicationUser)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetEntry.ApplicationUser.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetEntry.Category)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetEntry.Category.ID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.BudgetEntry.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
