@@ -1,0 +1,94 @@
+@page
+@model TooBroke.Pages.Goals.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>GoalEntry</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalEntry.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GoalEntry.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalEntry.InitialAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GoalEntry.InitialAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalEntry.GoalAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GoalEntry.GoalAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalEntry.Interest)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GoalEntry.Interest)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalEntry.Term)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GoalEntry.Term)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalEntry.Compound)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GoalEntry.Compound)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalEntry.RecurringPayments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GoalEntry.RecurringPayments)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalEntry.PaymentFrequency)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GoalEntry.PaymentFrequency)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalEntry.TargetPayOff)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GoalEntry.TargetPayOff)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalEntry.GeneratedPayOff)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GoalEntry.GeneratedPayOff)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalEntry.OneTimePayment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GoalEntry.OneTimePayment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalEntry.Category)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GoalEntry.Category.ID)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="GoalEntry.ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
