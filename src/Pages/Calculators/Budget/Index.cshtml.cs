@@ -24,7 +24,6 @@ namespace TooBroke.Pages.Budget
         public async Task OnGetAsync()
         {
             BudgetEntry = await _context.Budget
-                .Include(b => b.ApplicationUser)
                 .Include(b => b.Category).ToListAsync();
         }
     }

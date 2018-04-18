@@ -52,10 +52,10 @@ namespace TooBroke.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Amount = table.Column<float>(nullable: false),
+                    Amount = table.Column<double>(nullable: false),
                     ApplicationUserID = table.Column<string>(nullable: true),
                     CategoryID = table.Column<int>(nullable: false),
-                    CurrentBalance = table.Column<float>(nullable: false),
+                    CurrentBalance = table.Column<double>(nullable: false),
                     Title = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -64,7 +64,7 @@ namespace TooBroke.Migrations
                     table.ForeignKey(
                         name: "FK_Budget_ApplicationUser_ApplicationUserID",
                         column: x => x.ApplicationUserID,
-                        principalTable: "ApplicationUser",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -85,12 +85,12 @@ namespace TooBroke.Migrations
                     CategoryID = table.Column<int>(nullable: false),
                     Compound = table.Column<int>(nullable: false),
                     GeneratedPayOff = table.Column<int>(nullable: false),
-                    GoalAmount = table.Column<float>(nullable: false),
-                    InitialAmount = table.Column<float>(nullable: false),
-                    Interest = table.Column<float>(nullable: false),
-                    OneTimePayment = table.Column<float>(nullable: false),
+                    GoalAmount = table.Column<double>(nullable: false),
+                    InitialAmount = table.Column<double>(nullable: false),
+                    Interest = table.Column<double>(nullable: false),
+                    OneTimePayment = table.Column<double>(nullable: false),
                     PaymentFrequency = table.Column<int>(nullable: false),
-                    RecurringPayments = table.Column<float>(nullable: false),
+                    RecurringPayments = table.Column<double>(nullable: false),
                     TargetPayOff = table.Column<int>(nullable: false),
                     Term = table.Column<int>(nullable: false),
                     Title = table.Column<string>(nullable: true)
@@ -101,7 +101,7 @@ namespace TooBroke.Migrations
                     table.ForeignKey(
                         name: "FK_Goals_ApplicationUser_ApplicationUserID",
                         column: x => x.ApplicationUserID,
-                        principalTable: "ApplicationUser",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -118,7 +118,7 @@ namespace TooBroke.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Amount = table.Column<float>(nullable: false),
+                    Amount = table.Column<double>(nullable: false),
                     ApplicationUserID = table.Column<string>(nullable: true),
                     CategoryID = table.Column<int>(nullable: true),
                     Title = table.Column<string>(nullable: true),
@@ -130,7 +130,7 @@ namespace TooBroke.Migrations
                     table.ForeignKey(
                         name: "FK_Transactions_ApplicationUser_ApplicationUserID",
                         column: x => x.ApplicationUserID,
-                        principalTable: "ApplicationUser",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(

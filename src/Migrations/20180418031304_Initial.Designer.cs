@@ -11,7 +11,7 @@ using TooBroke.Data;
 namespace TooBroke.Migrations
 {
     [DbContext(typeof(CalculatorDbContext))]
-    [Migration("20180417050955_Initial")]
+    [Migration("20180418031304_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,13 +64,13 @@ namespace TooBroke.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Amount");
+                    b.Property<double>("Amount");
 
                     b.Property<string>("ApplicationUserID");
 
                     b.Property<int>("CategoryID");
 
-                    b.Property<int>("CurrentBalance");
+                    b.Property<double>("CurrentBalance");
 
                     b.Property<string>("Title");
 
@@ -107,17 +107,17 @@ namespace TooBroke.Migrations
 
                     b.Property<int>("GeneratedPayOff");
 
-                    b.Property<int>("GoalAmount");
+                    b.Property<double>("GoalAmount");
 
-                    b.Property<int>("InitialAmount");
+                    b.Property<double>("InitialAmount");
 
-                    b.Property<int>("Interest");
+                    b.Property<double>("Interest");
 
-                    b.Property<int>("OneTimePayment");
+                    b.Property<double>("OneTimePayment");
 
                     b.Property<int>("PaymentFrequency");
 
-                    b.Property<int>("RecurringPayments");
+                    b.Property<double>("RecurringPayments");
 
                     b.Property<int>("TargetPayOff");
 
@@ -134,12 +134,12 @@ namespace TooBroke.Migrations
                     b.ToTable("Goals");
                 });
 
-            modelBuilder.Entity("TooBroke.Models.CalculatorViewModels.TransactionEntries", b =>
+            modelBuilder.Entity("TooBroke.Models.CalculatorViewModels.TransactionEntry", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Amount");
+                    b.Property<double>("Amount");
 
                     b.Property<string>("ApplicationUserID");
 
@@ -182,7 +182,7 @@ namespace TooBroke.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TooBroke.Models.CalculatorViewModels.TransactionEntries", b =>
+            modelBuilder.Entity("TooBroke.Models.CalculatorViewModels.TransactionEntry", b =>
                 {
                     b.HasOne("TooBroke.Data.ApplicationUser", "ApplicationUser")
                         .WithMany()

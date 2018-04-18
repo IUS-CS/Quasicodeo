@@ -24,7 +24,8 @@ namespace TooBroke.Pages.Transactions
         public async Task OnGetAsync()
         {
             TransactionEntry = await _context.Transactions
-                .Include(t => t.ApplicationUser).ToListAsync();
+                .Include(b => b.Category).ToListAsync();
+
         }
     }
 }

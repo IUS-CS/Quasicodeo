@@ -24,7 +24,6 @@ namespace TooBroke.Pages.Goals
         public async Task OnGetAsync()
         {
             GoalEntry = await _context.Goals
-                .Include(g => g.ApplicationUser)
                 .Include(g => g.Category).ToListAsync();
         }
     }
