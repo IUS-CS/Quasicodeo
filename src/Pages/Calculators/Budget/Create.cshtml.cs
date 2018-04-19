@@ -41,7 +41,7 @@ namespace TooBroke.Pages.Budget
             }
 
             BudgetEntry.ApplicationUserID = _userManager.GetUserId(User);
-
+            BudgetEntry.CurrentBalance = BudgetEntry.Amount;
             _context.Budget.Add(BudgetEntry);
             await _context.SaveChangesAsync();
 
