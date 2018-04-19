@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,16 +14,18 @@ namespace TooBroke.Pages.Budget
     public class CreateModel : PageModel
     {
         private readonly TooBroke.Data.CalculatorDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public CreateModel(TooBroke.Data.CalculatorDbContext context)
+        public CreateModel(TooBroke.Data.CalculatorDbContext context,
+                           UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["ApplicationUserID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
-        ViewData["Categories"] = new SelectList(_context.Categories, "ID", "Title");
+            ViewData["Categories"] = new SelectList(_context.Categories, "ID", "Title");
             return Page();
         }
 
@@ -33,8 +36,12 @@ namespace TooBroke.Pages.Budget
         {
             if (!ModelState.IsValid)
             {
+                ViewData["Categories"] = new SelectList(_context.Categories, "ID", "Title");
                 return Page();
             }
+
+            BudgetEntry.ApplicationUserID = _userManager.GetUserId(User);
+            BudgetEntry.CurrentBalance = BudgetEntry.Amount;
 
             _context.Budget.Add(BudgetEntry);
             await _context.SaveChangesAsync();

@@ -13,15 +13,18 @@
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.TransactionEntry[0].Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TransactionEntry[0].Amount)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TransactionEntry[0].Type)
-                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionEntry[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionEntry[0].Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionEntry[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionEntry[0].Category)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -35,7 +38,10 @@
                 @Html.DisplayFor(modelItem => item.Amount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Type)
+                @(item.Type.Equals(false) ? "Debit" : "Credit")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Title)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

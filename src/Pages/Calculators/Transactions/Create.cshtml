@@ -14,6 +14,10 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="TransactionEntry.Category" class="control-label"></label>
+                <select asp-for="TransactionEntry.CategoryID" class="form-control" asp-items="ViewBag.Categories"></select>
+            </div>
+            <div class="form-group">
                 <label asp-for="TransactionEntry.Title" class="control-label"></label>
                 <input asp-for="TransactionEntry.Title" class="form-control" />
                 <span asp-validation-for="TransactionEntry.Title" class="text-danger"></span>
@@ -24,11 +28,8 @@
                 <span asp-validation-for="TransactionEntry.Amount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="TransactionEntry.Type" /> @Html.DisplayNameFor(model => model.Type))
-                    </label>
-                </div>
+                <label asp-for="TransactionEntry.Type" class="control-label"></label>
+                <select asp-for="TransactionEntry.Type" class="form-control" asp-items="Model.Types"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />

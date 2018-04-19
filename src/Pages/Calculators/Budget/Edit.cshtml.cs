@@ -31,7 +31,6 @@ namespace TooBroke.Pages.Budget
             }
 
             BudgetEntry = await _context.Budget
-                .Include(b => b.ApplicationUser)
                 .Include(b => b.Category).SingleOrDefaultAsync(m => m.ID == id);
 
             if (BudgetEntry == null)
