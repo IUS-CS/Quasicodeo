@@ -26,6 +26,11 @@ body {
     margin: 15px;
 }
 
+.navbar {
+    background-color: #000000;
+    //navbar color
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
