@@ -13,15 +13,15 @@
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.BudgetEntry[0].Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.BudgetEntry[0].Amount)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.BudgetEntry[0].CurrentBalance)
-                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BudgetEntry[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BudgetEntry[0].Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BudgetEntry[0].CurrentBalance)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.BudgetEntry[0].Category)
             </th>
@@ -29,26 +29,57 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.BudgetEntry) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentBalance)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Title)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.BudgetEntry)
+        {
+
+
+            double debitTotal = 0;
+            double creditTotal = 0;
+            foreach (var amt in Model.TransactionEntry)
+            {
+                if (amt.CategoryID == item.CategoryID)
+                {
+
+                    if (!amt.Type)
+                    {
+                        debitTotal += amt.Amount;
+                    }
+                    else
+                    {
+                        creditTotal += amt.Amount;
+                    }
+                }
+
+            }
+            double myAmt = item.CurrentBalance + debitTotal - creditTotal;
+            String color = "";
+            if (myAmt >= 0) {
+                color = "E5FDD0";
+            }
+            else
+            {
+                color = "FFBEBE";
+
+            }
+            <tr bgcolor=@color>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @myAmt
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Title)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

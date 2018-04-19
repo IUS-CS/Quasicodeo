@@ -1,38 +1,9 @@
 ﻿@page
-    <br />
-    @model AboutModel
-        @{
-            ViewData["Title"] = "About Us";
-        }
-        <h2>@ViewData["Title"]</h2>
-        <br />
-        <h3> Quasicodeo</h3>
-        <p>
-            Financial management in the cloud.
-            This web application is used as a way to track financing. Some of the features include a budget calculator, a debt calculator, and a savings calculator.
-            Graphical representations will also be available to show trends in user spending habits.
-            Ultimately, users will be able to make strategic, financial decisions based on the data gathered through statistical analysis of input over a period of time.
-            To use the application, users will simply navigate to the domain where the site is hosted.
-        </p>
+@model AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@Model.Message</h3>
 
-        <br />
-        <h4>Proposal:</h4>
-        The purpose of this project is to allow users the opportunity to plan their financial success while watching it develop in real time. A user can also use this for a specific goal, for life in general, or both.<br /><br />
-
-
-        <h4>Contributers:</h4>
-        <b>Rick Wohlleb: </b><br />
-        Application Developer - Writes code to implement project features. This role consists of debugging and continuous development.<br />
-        Unit Tester - Writes tests to stress functions and features of the application.<br /><br />
-
-
-        <b>Chris Loos: </b><br />
-        Database Administrator - Maintains tables and user profiles on a SQL database.<br />
-        Application Developer - Writes code to implement project features. This role consists of debugging and continuous development.<br />
-        System Administrator - Manages infrastructure for back end and front end communication.<br /><br />
-
-        <b>Erika Pruitt: </b><br />
-        Documentation - Maintains consistent and accurate information on progress of the project. This includes, status, feature implementations, and targets.<br />
-        Unit Tester - Assists in manual testing.<br />
-        Quality Assurance - Ensures comfortable and efficient manuverability of the application, as well as making note of UI/UX improvements.
-W
+<p>Use this area to provide additional information.</p>

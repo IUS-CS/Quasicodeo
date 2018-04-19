@@ -17,6 +17,5 @@
   <ItemGroup>
     <Folder Include="Pages\Calculators\Budget\" />
     <Folder Include="Pages\Calculators\Goals\" />
-    <Folder Include="Resources\Images\" />
   </ItemGroup>
 </Project>
