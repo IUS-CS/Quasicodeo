@@ -20,10 +20,14 @@ namespace TooBroke.Pages.Budget
         }
 
         public IList<BudgetEntry> BudgetEntry { get;set; }
+        public IList<TransactionEntry> TransactionEntry { get; set; }
 
         public async Task OnGetAsync()
         {
             BudgetEntry = await _context.Budget
+                .Include(b => b.Category).ToListAsync();
+
+            TransactionEntry = await _context.Transactions
                 .Include(b => b.Category).ToListAsync();
         }
     }
