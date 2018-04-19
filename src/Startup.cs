@@ -39,6 +39,7 @@ namespace TooBroke
             services.AddMvc()
                 .AddRazorPagesOptions(options =>
                 {
+                    options.Conventions.AddPageRoute("/About", "");
                     options.Conventions.AuthorizeFolder("/Account/Manage");
                     options.Conventions.AuthorizeFolder("/Calculators");
                     options.Conventions.AuthorizePage("/Account/Logout");
