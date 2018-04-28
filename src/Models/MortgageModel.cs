@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 using System.ComponentModel.DataAnnotations;
 using TooBroke.Data;
 
 namespace TooBroke.Models.CalculatorViewModels
 {
-    public class GoalEntry
+    public class MortgageModel : PageModel
     {
         public int ID { get; set; }
         public String ApplicationUserID { get; set; }

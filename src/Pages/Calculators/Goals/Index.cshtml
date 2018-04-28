@@ -1,84 +1,19 @@
 @page
-@model TooBroke.Pages.Goals.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Goal calculators index";
 }
 
-<h2>Goals</h2>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.GoalEntry[0].Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.GoalEntry[0].InitialAmount)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.GoalEntry[0].GoalAmount)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.GoalEntry[0].TargetPayOff)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.GoalEntry[0].GeneratedPayOff)
-                </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GoalEntry[0].Category)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.GoalEntry) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InitialAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GoalAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Interest)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Term)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Compound)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecurringPayments)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentFrequency)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TargetPayOff)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GeneratedPayOff)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OneTimePayment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Title)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<h2>Goal Calculators</h2>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <h4><a asp-page="Loans">Loan Calculator</a></h4>
+        <p>Calculate payments on your loans to minimize your costs.</p>
+        <hr />
+    </div>
+    <div class="col-md-12">
+        <h4><a asp-page="Savings">Savings Calculator</a></h4>
+        <p>Calculate how long it will take to reach your financial goals.</p>
+    </div>
+</div>
