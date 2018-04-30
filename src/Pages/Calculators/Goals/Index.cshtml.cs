@@ -18,13 +18,5 @@ namespace TooBroke.Pages.Goals
         {
             _context = context;
         }
-
-        public IList<GoalEntry> GoalEntry { get;set; }
-
-        public async Task OnGetAsync()
-        {
-            GoalEntry = await _context.Goals
-                .Include(g => g.Category).ToListAsync();
-        }
     }
 }

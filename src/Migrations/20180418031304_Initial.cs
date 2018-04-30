@@ -76,43 +76,6 @@ namespace TooBroke.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Goals",
-                columns: table => new
-                {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ApplicationUserID = table.Column<string>(nullable: true),
-                    CategoryID = table.Column<int>(nullable: false),
-                    Compound = table.Column<int>(nullable: false),
-                    GeneratedPayOff = table.Column<int>(nullable: false),
-                    GoalAmount = table.Column<double>(nullable: false),
-                    InitialAmount = table.Column<double>(nullable: false),
-                    Interest = table.Column<double>(nullable: false),
-                    OneTimePayment = table.Column<double>(nullable: false),
-                    PaymentFrequency = table.Column<int>(nullable: false),
-                    RecurringPayments = table.Column<double>(nullable: false),
-                    TargetPayOff = table.Column<int>(nullable: false),
-                    Term = table.Column<int>(nullable: false),
-                    Title = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Goals", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Goals_ApplicationUser_ApplicationUserID",
-                        column: x => x.ApplicationUserID,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Goals_Categories_CategoryID",
-                        column: x => x.CategoryID,
-                        principalTable: "Categories",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Transactions",
                 columns: table => new
                 {
@@ -152,16 +115,6 @@ namespace TooBroke.Migrations
                 column: "CategoryID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Goals_ApplicationUserID",
-                table: "Goals",
-                column: "ApplicationUserID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Goals_CategoryID",
-                table: "Goals",
-                column: "CategoryID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Transactions_ApplicationUserID",
                 table: "Transactions",
                 column: "ApplicationUserID");
@@ -176,9 +129,6 @@ namespace TooBroke.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Budget");
-
-            migrationBuilder.DropTable(
-                name: "Goals");
 
             migrationBuilder.DropTable(
                 name: "Transactions");

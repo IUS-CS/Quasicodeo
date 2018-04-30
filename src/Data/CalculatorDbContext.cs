@@ -16,7 +16,7 @@ namespace TooBroke.Data
 
         public DbSet<BudgetEntry> Budget { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<GoalEntry> Goals { get; set; }
+        public DbSet<MortgageModel> Goals { get; set; }
         public DbSet<TransactionEntry> Transactions { get; set; }
     }
 }

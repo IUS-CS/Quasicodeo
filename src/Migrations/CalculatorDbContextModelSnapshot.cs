@@ -93,46 +93,6 @@ namespace TooBroke.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("TooBroke.Models.CalculatorViewModels.GoalEntry", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ApplicationUserID");
-
-                    b.Property<int>("CategoryID");
-
-                    b.Property<int>("Compound");
-
-                    b.Property<int>("GeneratedPayOff");
-
-                    b.Property<double>("GoalAmount");
-
-                    b.Property<double>("InitialAmount");
-
-                    b.Property<double>("Interest");
-
-                    b.Property<double>("OneTimePayment");
-
-                    b.Property<int>("PaymentFrequency");
-
-                    b.Property<double>("RecurringPayments");
-
-                    b.Property<int>("TargetPayOff");
-
-                    b.Property<int>("Term");
-
-                    b.Property<string>("Title");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ApplicationUserID");
-
-                    b.HasIndex("CategoryID");
-
-                    b.ToTable("Goals");
-                });
-
             modelBuilder.Entity("TooBroke.Models.CalculatorViewModels.TransactionEntry", b =>
                 {
                     b.Property<int>("ID")
@@ -158,18 +118,6 @@ namespace TooBroke.Migrations
                 });
 
             modelBuilder.Entity("TooBroke.Models.CalculatorViewModels.BudgetEntry", b =>
-                {
-                    b.HasOne("TooBroke.Data.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserID");
-
-                    b.HasOne("TooBroke.Models.CalculatorViewModels.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TooBroke.Models.CalculatorViewModels.GoalEntry", b =>
                 {
                     b.HasOne("TooBroke.Data.ApplicationUser", "ApplicationUser")
                         .WithMany()

@@ -1,0 +1,65 @@
+﻿@page
+@model TooBroke.Pages.Calculators.Goals.SavingsModel
+@{
+    ViewData["Title"] = "Savings";
+}
+
+<h2>Savings</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Principal" class="control-label"></label>
+                <input asp-for="Principal" class="form-control" value="@Model.SavedPrincipal" />
+                <span asp-validation-for="Principal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Deposit" class="control-label"></label>
+                <input asp-for="Deposit" class="form-control" value="@Model.SavedDeposit" />
+                <span asp-validation-for="Deposit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Interest" class="control-label"></label>
+                <input asp-for="Interest" class="form-control" value="@Model.SavedInterest" />
+                <span asp-validation-for="Interest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Term" class="control-label"></label>
+                <input asp-for="Term" class="form-control" value="@Model.SavedTerm" />
+                <span asp-validation-for="Term" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Goal" class="control-label"></label>
+                <input asp-for="Goal" class="form-control" value="@Model.SavedGoal" />
+                <span asp-validation-for="Goal" class="text-danger"></span>
+            </div>
+
+            <button>Calculate</button>
+        </form>
+    </div>
+    @if (Model.Results != null)
+    {
+        <div class="col-md-8">
+            <h4>Results</h4>
+            <div class="row">
+                <div class="col-md-8">
+                    @Model.Results
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <br />
+        <a asp-page="Index">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
